@@ -64,3 +64,32 @@
     right: 15px;
     cursor: pointer;
 }
+
+.note-heading, .note-content{
+    outline: none;
+    min-height: 20px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.note-heading{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.note-content{
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Placeholder behaviour using pseudo-elements*/
+.note-heading:empty:before,
+.note-content:empty::before {
+    content: attr(data-placeholder);
+    color: #888;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+}

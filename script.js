@@ -12,14 +12,29 @@ function updateStorage(){
 }
 
 createBtn.addEventListener("click", ()=>{
-    let inputBox = document.createElement("p");
-    let img = document.createElement("img");
-    inputBox.className = "input-box";
-    inputBox.setAttribute("contenteditable", "true");
-    img.src = "images/delete.png";
-    notesContainer.appendChild(inputBox).appendChild(img);
+    let note = document.createElement("div");
+    note.className = "input-box";
 
-    // adding to localstorage
+    let heading = document.createElement("div");
+    heading.className = "note-heading";
+    heading.setAttribute("contenteditable", "true");
+    heading.setAttribute("data-placeholder", "Enter title...");
+
+    let content = document.createElement("div");
+    content.className = "note-content";
+    content.setAttribute("contenteditable", "true");
+    content.setAttribute("data-placeholder", "Enter your note...");
+
+    let img = document.createElement("img");
+    img.src = "images/delete.png";
+
+    note.appendChild(heading);
+    note.appendChild(content);
+    note.appendChild(img);
+    notesContainer.appendChild(note);
+
+    heading.focus();
+
     updateStorage();
 })
 
